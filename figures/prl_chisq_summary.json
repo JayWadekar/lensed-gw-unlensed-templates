@@ -1,7 +1,8 @@
 {
   "sources": [
     "data/chisq/chisq_M50.npz",
-    "data/chisq/background_chisq.npz"
+    "data/chisq/background_chisq.npz",
+    "data/gw231123/pm_nrsur_y_MLz_90.json"
   ],
   "m_tot": 50.0,
   "rho_ref": 20.0,
