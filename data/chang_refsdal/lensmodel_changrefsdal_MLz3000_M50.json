@@ -1,0 +1,270 @@
+{
+  "timestamp_utc": "2026-09-08T22:19:24.694219+00:00",
+  "git_commit": "3142c2d72cf1eeface239112bc6d5cee2fd198c3",
+  "seed": 20260901,
+  "config": {
+    "seg_dur": 4.0,
+    "sample_rate": 4096.0,
+    "f_lower": 20.0,
+    "f_final": 1024.0,
+    "psd_name": "aLIGOZeroDetHighPower",
+    "approximant": "IMRPhenomD",
+    "mass1": 25.0,
+    "mass2": 25.0,
+    "spin1z": 0.0,
+    "spin2z": 0.0,
+    "distance": 1000.0,
+    "extra": {},
+    "config_hash": "2118f0ff13c5ed1a"
+  },
+  "lens_model": "changrefsdal",
+  "lens_label": "Chang-Refsdal M_Lz=3000",
+  "m_lz": 3000.0,
+  "y": 0.3,
+  "phi_gamma_deg": 45.0,
+  "psi0": 1.0,
+  "m_tot": 50.0,
+  "exclude_half_width": 0.03,
+  "t0_s": 1.216216319964967,
+  "segment": {
+    "chirp_time_s": 1.1583012571094922,
+    "seg_dur_s": 4.0,
+    "required_s": 2.6978765713868653
+  },
+  "oversample": 4,
+  "search_grid": {
+    "n_td": 1000,
+    "n_y": 8,
+    "n_active": 5339,
+    "t_d_range_s": [
+      0.0009765625,
+      0.5
+    ],
+    "y_range": [
+      0.01,
+      2.0
+    ],
+    "a_range": [
+      0.1715728752538098,
+      0.9900498750007812
+    ],
+    "M_Lz_range_active": [
+      103.62625423152316,
+      99938.79738102925
+    ],
+    "coordinates": "product grid in (t_d [linear], y)",
+    "td_spacing": "linear",
+    "t_d_min_s": 0.001,
+    "t_d_max_s": 0.5,
+    "y_min": 0.01,
+    "y_max": 2.0,
+    "M_Lz_min": 100.0,
+    "M_Lz_max": 100000.0,
+    "snapped_to_delta_t": 6.103515625e-05,
+    "n_td_before_snap": 1000,
+    "n_td_after_snap": 1000
+  },
+  "search_grid_note": "frozen point-mass-derived grid, deliberately not re-tuned for this lens model",
+  "injection": "hybrid: exact wave optics where the Fermat contours close (kappa+gamma<1) -- GLoW's I(tau) with the lensing.wave_contour transform -- and exact geometric optics from the Chang-Refsdal quartic where they are open (DECISIONS.md D15, D27)",
+  "optics_census": {
+    "wave": 738,
+    "geometric": 276
+  },
+  "wave_optics": {
+    "w_min": 7.42746536468776,
+    "w_max": 380.2862266720133,
+    "w_max_trusted": 3000.0,
+    "tau_max": 10000.0,
+    "n_seg": 4000,
+    "T_saddle": 3.0,
+    "validation": "results/frozen/cr_wave_validation/cr_wave_validation.json"
+  },
+  "glow_version": "0.1",
+  "morse_phases": {
+    "0": "same type (0 deg)",
+    "1": "min->saddle (90 deg)",
+    "2": "min->max (180 deg)",
+    "3": "saddle->min (270 deg)"
+  },
+  "quantity": "recovery = max over time and the frozen lens grid of |z|/sigma(d)",
+  "wall_time_s": 1076.7404038906097,
+  "n_skipped": {
+    "near critical line": 75
+  },
+  "searched_domain": {
+    "unlensed": {
+      "n": 1014,
+      "min": 0.6291007232727329,
+      "median": 0.8023368478039715,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    },
+    "frozen_q1": {
+      "n": 1014,
+      "min": 0.7476803887395838,
+      "median": 0.8839456346330055,
+      "frac_ge_0.97": 0.21104536489151873,
+      "frac_ge_0.95": 0.22485207100591717
+    },
+    "generalized": {
+      "n": 1014,
+      "min": 0.8623583285333988,
+      "median": 0.9702028101019453,
+      "frac_ge_0.97": 0.5019723865877712,
+      "frac_ge_0.95": 0.5631163708086785
+    },
+    "q0": {
+      "n": 1014,
+      "min": 0.849322386997188,
+      "median": 0.9099664399069975,
+      "frac_ge_0.97": 0.29092702169625245,
+      "frac_ge_0.95": 0.33826429980276135
+    },
+    "q1": {
+      "n": 1014,
+      "min": 0.7476803887395838,
+      "median": 0.8839456346330055,
+      "frac_ge_0.97": 0.21104536489151873,
+      "frac_ge_0.95": 0.22485207100591717
+    },
+    "q2": {
+      "n": 1014,
+      "min": 0.7094165696879329,
+      "median": 0.8231261107595146,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    },
+    "q3": {
+      "n": 1014,
+      "min": 0.7103764838190586,
+      "median": 0.8444324056965563,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    }
+  },
+  "macro_minimum_cells": {
+    "unlensed": {
+      "n": 738,
+      "min": 0.6291007232727329,
+      "median": 0.7736636409745208,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    },
+    "frozen_q1": {
+      "n": 738,
+      "min": 0.7476803887395838,
+      "median": 0.8827494570486936,
+      "frac_ge_0.97": 0.2899728997289973,
+      "frac_ge_0.95": 0.3089430894308943
+    },
+    "generalized": {
+      "n": 738,
+      "min": 0.8623583285333988,
+      "median": 0.9281986701848977,
+      "frac_ge_0.97": 0.3157181571815718,
+      "frac_ge_0.95": 0.3997289972899729
+    },
+    "q0": {
+      "n": 738,
+      "min": 0.849322386997188,
+      "median": 0.8976199099797894,
+      "frac_ge_0.97": 0.025745257452574527,
+      "frac_ge_0.95": 0.09078590785907859
+    },
+    "q1": {
+      "n": 738,
+      "min": 0.7476803887395838,
+      "median": 0.8827494570486936,
+      "frac_ge_0.97": 0.2899728997289973,
+      "frac_ge_0.95": 0.3089430894308943
+    },
+    "q2": {
+      "n": 738,
+      "min": 0.7094165696879329,
+      "median": 0.8078256669598299,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    },
+    "q3": {
+      "n": 738,
+      "min": 0.7103764838190586,
+      "median": 0.827199100993912,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    }
+  },
+  "macro_saddle_cells": {
+    "unlensed": {
+      "n": 276,
+      "min": 0.7938202643584559,
+      "median": 0.8082667557578556,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    },
+    "frozen_q1": {
+      "n": 276,
+      "min": 0.8639253346350545,
+      "median": 0.8846746124090386,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    },
+    "generalized": {
+      "n": 276,
+      "min": 0.994613882238874,
+      "median": 0.9983599967196137,
+      "frac_ge_0.97": 1.0,
+      "frac_ge_0.95": 1.0
+    },
+    "q0": {
+      "n": 276,
+      "min": 0.994613882238874,
+      "median": 0.9983599967196137,
+      "frac_ge_0.97": 1.0,
+      "frac_ge_0.95": 1.0
+    },
+    "q1": {
+      "n": 276,
+      "min": 0.8639253346350545,
+      "median": 0.8846746124090386,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    },
+    "q2": {
+      "n": 276,
+      "min": 0.8149339345944708,
+      "median": 0.828668251336108,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    },
+    "q3": {
+      "n": 276,
+      "min": 0.8998979577366055,
+      "median": 0.9058223072990501,
+      "frac_ge_0.97": 0.0,
+      "frac_ge_0.95": 0.0
+    }
+  },
+  "required_q_census": {
+    "0": 700,
+    "1": 314,
+    "2": 0,
+    "3": 0
+  },
+  "best_q_census_macro_saddle": {
+    "0": 276,
+    "1": 0,
+    "2": 0,
+    "3": 0
+  },
+  "image_counts": {
+    "0": 75,
+    "1": 0,
+    "2": 590,
+    "3": 0,
+    "4": 424
+  },
+  "macro_saddle_analytic_floor": {
+    "median_a2": 0.7540812158569288,
+    "predicted_1_over_sqrt_1_plus_a2sq_median": 0.7984331642567585
+  }
+}

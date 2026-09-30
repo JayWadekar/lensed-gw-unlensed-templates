@@ -1,0 +1,121 @@
+{
+  "sources": [
+    "data/chisq/chisq_M50.npz",
+    "data/chisq/background_chisq.npz"
+  ],
+  "m_tot": 50.0,
+  "rho_ref": 20.0,
+  "n_bins": 16,
+  "dof": 30,
+  "chirp_time_s": 1.1583012571094922,
+  "null_control_excess": 0.002986592973852947,
+  "null_control_lensed": {
+    "a": 0.5,
+    "t_d_s": 0.04998779296875,
+    "excess": 0.005112563261460913,
+    "snr_recovered": 20.0,
+    "rho_ref": 20.0
+  },
+  "thresholds": {
+    "unlensed": 5.4743332862854,
+    "bank_free": 6.499512195587158,
+    "fap": 0.001,
+    "n_background_segments": 300000
+  },
+  "chi2_unlensed": {
+    "n_cells": 338,
+    "median": 2.407112690887988,
+    "max": 6.040342333487752,
+    "frac_gt_2": 0.5887573964497042
+  },
+  "chi2_bankfree": {
+    "n_cells": 338,
+    "median": 1.0461332325540003,
+    "max": 1.63635608751188,
+    "frac_gt_2": 0.0
+  },
+  "volume_ratio": {
+    "n_cells": 338,
+    "median": 1.0675627917609878,
+    "p90": 2.7116990253790965,
+    "frac_gt_2": 0.20118343195266272,
+    "frac_lt_1": 0.4467455621301775,
+    "overlap_band": {
+      "definition": "searched domain with t_d < chirp duration",
+      "n_cells": 338,
+      "median": 1.0675627917609878,
+      "p90": 2.7116990253790965,
+      "frac_gt_2": 0.20118343195266272
+    },
+    "threshold_only_factor": 0.5975185799681385,
+    "n_standard_undetectable": 0,
+    "conditional": {
+      "chi2_gt_2": {
+        "full": {
+          "n_cells": 199,
+          "median": 1.4610708292909884,
+          "p90": 3.8729810575890875,
+          "max": 7.519926426129821,
+          "frac_gt_2": 0.3417085427135678,
+          "frac_lt_1": 0.25125628140703515
+        },
+        "mismatch_cube": {
+          "n_cells": 199,
+          "median": 1.8505695080345803,
+          "p90": 2.7614158557898683,
+          "max": 3.2777362355258886,
+          "frac_gt_2": 0.44221105527638194,
+          "frac_lt_1": 0.0
+        }
+      },
+      "chi2_gt_4": {
+        "full": {
+          "n_cells": 80,
+          "median": 2.5902570660370308,
+          "p90": 5.1148359005209185,
+          "max": 7.519926426129821,
+          "frac_gt_2": 0.7,
+          "frac_lt_1": 0.0
+        },
+        "mismatch_cube": {
+          "n_cells": 80,
+          "median": 2.4786253768386715,
+          "p90": 3.0447704209039066,
+          "max": 3.2777362355258886,
+          "frac_gt_2": 0.7375,
+          "frac_lt_1": 0.0
+        }
+      }
+    }
+  },
+  "mismatch_cube": {
+    "definition": "(snr_bankfree/snr_unlensed)^3, SNR only, no chi2",
+    "raw": {
+      "n_cells": 338,
+      "median": 1.5529980291339742,
+      "p90": 2.66097243558059,
+      "max": 3.2777362355258886,
+      "frac_gt_2": 0.3431952662721893,
+      "frac_lt_1": 0.0029585798816568047
+    },
+    "at_own_fap": {
+      "n_cells": 338,
+      "median": 0.9279451770614501,
+      "p90": 1.5899804710424732,
+      "max": 1.958508300961541,
+      "frac_gt_2": 0.0,
+      "frac_lt_1": 0.5532544378698225
+    }
+  },
+  "fitting_factor": {
+    "unlensed": {
+      "median": 0.8615705206584161,
+      "min": 0.670137562942435
+    },
+    "two_image": {
+      "median": 0.9970941712055159,
+      "min": 0.9762576522132773
+    }
+  },
+  "colour_clip": "volume ratio clipped at a factor of 10 either way"
+}

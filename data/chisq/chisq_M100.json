@@ -1,0 +1,134 @@
+{
+  "timestamp_utc": "2026-09-08T02:03:18.941689+00:00",
+  "git_commit": "f3d36407121886750734be568845ded98f9e3c8c",
+  "seed": 20260902,
+  "config": {
+    "seg_dur": 2.0,
+    "sample_rate": 4096.0,
+    "f_lower": 20.0,
+    "f_final": 1024.0,
+    "psd_name": "aLIGOZeroDetHighPower",
+    "approximant": "IMRPhenomD",
+    "mass1": 50.0,
+    "mass2": 50.0,
+    "spin1z": 0.0,
+    "spin2z": 0.0,
+    "distance": 1000.0,
+    "extra": {},
+    "config_hash": "db05a756b9e71a89"
+  },
+  "m_tot": 100.0,
+  "rho_ref": 20.0,
+  "n_bins": 16,
+  "backend": "auto",
+  "dof": 30,
+  "t0_s": 0.27001953125,
+  "segment": {
+    "chirp_time_s": 0.25716283835644843,
+    "seg_dur_s": 2.0,
+    "required_s": 1.5714535479455605
+  },
+  "oversample": 4,
+  "search_grid": {
+    "n_td": 1000,
+    "n_y": 8,
+    "n_active": 5339,
+    "t_d_range_s": [
+      0.0009765625,
+      0.5
+    ],
+    "y_range": [
+      0.01,
+      2.0
+    ],
+    "a_range": [
+      0.1715728752538098,
+      0.9900498750007812
+    ],
+    "M_Lz_range_active": [
+      103.62625423152316,
+      99938.79738102925
+    ],
+    "coordinates": "product grid in (t_d [linear], y)",
+    "td_spacing": "linear",
+    "t_d_min_s": 0.001,
+    "t_d_max_s": 0.5,
+    "y_min": 0.01,
+    "y_max": 2.0,
+    "M_Lz_min": 100.0,
+    "M_Lz_max": 100000.0,
+    "snapped_to_delta_t": 6.103515625e-05,
+    "n_td_before_snap": 1000,
+    "n_td_after_snap": 1000
+  },
+  "veto": "pycbc.vetoes.power_chisq, evaluated at the trigger time of the template in use, divided by dof = 2 n_bins - 2",
+  "injection": "exact wave-optics point-mass F_ML, noise-free, scaled to rho_ref; reported values are the deterministic excess, so E[chi2_r] = 1 + excess once noise is added",
+  "null_control_excess": 0.006589868557250611,
+  "null_control_lensed": {
+    "a": 0.5,
+    "t_d_s": 0.04998779296875,
+    "excess": 0.013172047041456381,
+    "snr_recovered": 20.0,
+    "rho_ref": 20.0
+  },
+  "noise_checks": [
+    {
+      "M_Lz": 1000.0,
+      "y": 0.3,
+      "n_realizations": 64,
+      "noise_free_excess": 3.819422413349846,
+      "mean_with_noise": 4.870128913416819,
+      "std_with_noise": 0.77248450296807,
+      "predicted_mean": 4.819422413349846
+    },
+    {
+      "M_Lz": 10000.0,
+      "y": 0.1,
+      "n_realizations": 64,
+      "noise_free_excess": 3.444723528532405,
+      "mean_with_noise": 4.222951194268611,
+      "std_with_noise": 0.6522806204316306,
+      "predicted_mean": 4.444723528532405
+    },
+    {
+      "M_Lz": 30000.0,
+      "y": 0.3,
+      "n_realizations": 64,
+      "noise_free_excess": 0.030699223743171918,
+      "mean_with_noise": 0.9933836479946645,
+      "std_with_noise": 0.28558832667158,
+      "predicted_mean": 1.030699223743172
+    }
+  ],
+  "primary_veto": "conventional: power_chisq of the ORIGINAL data against the best-fit two-image template h_L = h + c(a) h(t+tau), the template that produced the trigger; equal-power bins come from |h_L|^2 (D25).  chi2_residual is the earlier construction, retained as a cross-check.",
+  "subtraction": "A c h(t_peak + t_d) with (t_d, a) the bank-free best fit on the frozen grid and A = (d|h_L)/(h_L|h_L)",
+  "wall_time_s": 59.49169182777405,
+  "n_skipped": {
+    "delay too long": 16
+  },
+  "chi2_unlensed_stats": {
+    "n": 338,
+    "min": 0.010672923282070694,
+    "median": 0.8745864929822688,
+    "max": 5.976674699732647,
+    "frac_gt_1": 0.47633136094674555,
+    "frac_gt_2": 0.378698224852071
+  },
+  "chi2_lensed_stats": {
+    "n": 338,
+    "min": 0.009262056584615645,
+    "median": 0.055417734607177256,
+    "max": 0.47899052440145434,
+    "frac_gt_1": 0.0,
+    "frac_gt_2": 0.0
+  },
+  "chi2_residual_stats": {
+    "n": 338,
+    "min": 0.003329338971132264,
+    "median": 0.020978954038288103,
+    "max": 0.375585784880136,
+    "frac_gt_1": 0.0,
+    "frac_gt_2": 0.0
+  },
+  "chirp_time_s": 0.25716283835644843
+}

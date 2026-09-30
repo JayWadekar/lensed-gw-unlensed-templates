@@ -1,0 +1,106 @@
+{
+  "source": "data/strategies/lensed_strategies_rhoUL.npz",
+  "presentation": {
+    "yscale": "linear",
+    "ordinate": "rho dV/drho",
+    "arms_shown": [
+      "both_catalog",
+      "one_subthr",
+      "long_max"
+    ],
+    "arms_not_shown": [
+      "long_marg"
+    ]
+  },
+  "source_is_frozen": false,
+  "product_timestamp_utc": "2026-09-26T05:35:52.063976+00:00",
+  "product_git_commit": "c9609c82e2bdda089eb4ca109e2a7a907910774d",
+  "seed": 20260907,
+  "rho_ref": 8.0,
+  "measure": "sensitive volume, V = ((s-1)/rho_ref) int eps (rho/rho_ref)^-s drho plus the saturated tail, in units of the sphere out to the rho_ref horizon, averaged over the impact-parameter nodes with the magnification-biased weights above",
+  "a_ratio_prior_mean": 0.5243556750369713,
+  "volumes": {
+    "both_catalog": 0.4283109265952088,
+    "one_subthr": 0.9400750711716286,
+    "long_max": 1.777611887754188,
+    "long_marg": 1.7287181516137655
+  },
+  "ratios_vs_both_in_catalog": {
+    "both_catalog": 1.0,
+    "one_subthr": 2.1948426080198544,
+    "long_max": 4.150283771383181,
+    "long_marg": 4.036128999453602
+  },
+  "per_image_cuts": {
+    "both_catalog": 8.07259109245968,
+    "one_subthr": 5.99479810376664,
+    "long_max": 6.896935830549348,
+    "long_marg": 6.956551235599692
+  },
+  "rho_bright_catalog_pair": 15.39525836521269,
+  "scan": "intrinsic",
+  "scan_variable": "rho_UL, the unlensed (intrinsic) amplitude",
+  "magnification_bias": true,
+  "ratios_under_the_other_weighting": {
+    "both_catalog": 1.0,
+    "one_subthr": 2.3433406241945196,
+    "long_max": 5.0288543001732995,
+    "long_marg": 4.889676149862309,
+    "weighting": "cross-section prior only"
+  },
+  "marginalization_gain_long": 0.9724947068157862,
+  "marginalization_gain_vs_slope": {
+    "-4.0": 0.9724947068157863,
+    "-4.5": 0.9678372396949396,
+    "-5.0": 0.9631580610356769,
+    "-5.5": 0.9584560066694389,
+    "-6.0": 0.9537297022274487
+  },
+  "delay_trials_measured": 173000.0,
+  "marg_trials_saving_measured": 0.445,
+  "trials": {
+    "both_catalog": 38465328000000.0,
+    "one_subthr": 17300000.0,
+    "long_max": 6.654501744e+18,
+    "long_marg": 1.4953936503370787e+19
+  },
+  "thresholds_chi2": {
+    "both_catalog": 65.16672694605937,
+    "one_subthr": 35.93760430492411,
+    "long_max": 95.13544770143085,
+    "long_marg": 96.7872101870472
+  },
+  "dof": {
+    "both_catalog": 2,
+    "one_subthr": 2,
+    "long_max": 4,
+    "long_marg": 4
+  },
+  "derived_trials": {
+    "T_obs_s": 31560000.0,
+    "f_rms_hz": 121.88,
+    "N_eff_window_measured": 173000.0,
+    "N_events_assumed": 100,
+    "N_templates_blind": 10000,
+    "N_templates_conditional": 1,
+    "N_templates_is_a_bank_size": true,
+    "N_single": 38465328000000.0,
+    "N_pairs": 6.654501744e+18,
+    "assumptions_swept": [
+      "N_events_assumed",
+      "N_templates_blind"
+    ],
+    "note": "every trials factor is derived from T_obs, f_rms and the MEASURED delay-window N_eff; no order-of-magnitude time/sky estimate is inherited.  TWO inputs are assumed rather than measured and both are swept below: N_events, and N_templates -- taken as 1e4, the scale quoted for binary-black-hole banks in the search literature, and charged to every strategy except the conditional one, whose bright event pins the template.  Only 2 ln N_templates enters, so a decade in it is worth 4.6 in rho^2 against thresholds of 60-90."
+  },
+  "base_trials_inherited_not_measured": null,
+  "changes": [
+    "fainter image scaled by the measured a(y); prior mean 0.52",
+    "lens/delay trials MEASURED: N_eff = 1.73e5 for the 10-60 min window (0.47 of T f_rms) and 1.04 marginalized; Phase 4's 5339 grid points measure as N_eff = 572",
+    "all thresholds re-solved at the same 0.1 false alarms",
+    "joint strategies ranked by z1^2+z2^2, the quantity the chi2 refers to",
+    "added the delay-marginalized both-sub-threshold strategy",
+    "the marginalized arm uses the value measured IN THIS REGIME against a 3e6-block rich pool: x0.445 at FAP 1e-3, i.e. a PENALTY not a saving (D26).  The earlier x14.97 is withdrawn.",
+    "SNRs are complex and each ranking's threshold uses the dof its own statistic has (2 per image, 4 for the incoherent two-image sum); real gaussians against 4-dof thresholds ran the joint arms 15-20x inside the budget (D24)",
+    "figure of merit is sensitive volume, int eps rho^-4 drho (D19), not an arbitrary-unit A^-5.5 phase space, over a grid that reaches saturation -- without which every ratio against the reference arm is set by the grid edge (D23)"
+  ]
+}

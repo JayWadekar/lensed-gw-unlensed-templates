@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lensed-gw-unlensed-templates"
+version = "1.0.0"
+description = "Lensed gravitational-wave searches with unlensed templates: code for Wadekar et al. (PRL)"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Digvijay Wadekar"}]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.12",
+    "matplotlib>=3.8",
+    "mpmath>=1.3",
+]
+
+[project.optional-dependencies]
+# Waveforms, PSDs and the power chi^2 test.  Needed by the simulations,
+# not by the plotting scripts.
+gw = ["pycbc>=2.10"]
+fast = ["numba>=0.60"]
+test = ["pytest>=8"]
+
+[project.urls]
+Repository = "https://github.com/JayWadekar/lensed-gw-unlensed-templates"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+lensing = ["go_handoff.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

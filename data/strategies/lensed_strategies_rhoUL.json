@@ -1,0 +1,414 @@
+{
+  "timestamp_utc": "2026-09-26T05:35:52.063976+00:00",
+  "git_commit": "c9609c82e2bdda089eb4ca109e2a7a907910774d",
+  "seed": 20260907,
+  "convention": {
+    "name": "default",
+    "morse_sign": 1,
+    "shift_sign": 1,
+    "fd_delay_sign": -1,
+    "conjugate_template": true,
+    "rel_morse_quarters": 1,
+    "rel_morse_label": "min->saddle (90 deg)",
+    "norm_cross_sign": 1
+  },
+  "versions": {
+    "python": "3.12.0",
+    "numpy": "2.3.4",
+    "scipy": "1.16.2",
+    "pycbc": "2.10.0"
+  },
+  "script": "lensed_strategies.py",
+  "extends": "scripts/zackay_sensitivity.py (collaborator's framework)",
+  "changes": [
+    "fainter image scaled by the measured a(y); prior mean 0.52",
+    "lens/delay trials MEASURED: N_eff = 1.73e5 for the 10-60 min window (0.47 of T f_rms) and 1.04 marginalized; Phase 4's 5339 grid points measure as N_eff = 572",
+    "all thresholds re-solved at the same 0.1 false alarms",
+    "joint strategies ranked by z1^2+z2^2, the quantity the chi2 refers to",
+    "added the delay-marginalized both-sub-threshold strategy",
+    "the marginalized arm uses the value measured IN THIS REGIME against a 3e6-block rich pool: x0.445 at FAP 1e-3, i.e. a PENALTY not a saving (D26).  The earlier x14.97 is withdrawn.",
+    "SNRs are complex and each ranking's threshold uses the dof its own statistic has (2 per image, 4 for the incoherent two-image sum); real gaussians against 4-dof thresholds ran the joint arms 15-20x inside the budget (D24)",
+    "figure of merit is sensitive volume, int eps rho^-4 drho (D19), not an arbitrary-unit A^-5.5 phase space, over a grid that reaches saturation -- without which every ratio against the reference arm is set by the grid edge (D23)"
+  ],
+  "budget": 0.1,
+  "slope": -4.0,
+  "n_samples": 200000,
+  "delay_trials_measured": 173000.0,
+  "delay_window_measured_s": 3000.0,
+  "marg_trials_saving_measured": 0.445,
+  "marg_saving_measured_at_fap": 0.001,
+  "marg_trials_saving_note": "x0.445 at FAP 1e-3, i.e. prior weighting COSTS trials in this regime rather than saving them.  The earlier x1.54 / x3.08 / x14.97 at FAP 1e-2 / 1e-3 / 1e-4 were measured against a pool too shallow to resolve the marginalized arm's tail and are WITHDRAWN (DECISIONS.md D26); the value here is measured against a 3e6-block rich pool.  Phase 4's +13% for the compact overlapping prior is a different regime and is unaffected.",
+  "trials": {
+    "both_catalog": 38465328000000.0,
+    "one_subthr": 17300000.0,
+    "long_max": 6.654501744e+18,
+    "long_marg": 1.4953936503370787e+19
+  },
+  "thresholds_chi2": {
+    "both_catalog": 65.16672694605937,
+    "one_subthr": 35.93760430492411,
+    "long_max": 95.13544770143085,
+    "long_marg": 96.7872101870472
+  },
+  "per_image_cuts": {
+    "both_catalog": 8.07259109245968,
+    "one_subthr": 5.99479810376664,
+    "long_max": 6.896935830549348,
+    "long_marg": 6.956551235599692
+  },
+  "a_ratio_nodes": [
+    0.8275467099171846,
+    0.7737440413682718,
+    0.6926408485633928,
+    0.6032960128874968,
+    0.5215947845987016,
+    0.45674090390827776,
+    0.4120497227436877,
+    0.38762545297293477
+  ],
+  "a_ratio_weights": [
+    0.0163577151858996,
+    0.04875774050852266,
+    0.09875526901757085,
+    0.15789702019183102,
+    0.20478676318653066,
+    0.21495137686031604,
+    0.17362329394485176,
+    0.08487082110447747
+  ],
+  "mu_plus_nodes": [
+    3.172926631343987,
+    2.491776151662787,
+    1.9221577808587649,
+    1.5722431889932404,
+    1.3737417062633515,
+    1.2636030873280748,
+    1.2045072284873812,
+    1.1768215465920782
+  ],
+  "scan_variable": "rho_UL, the unlensed (intrinsic) amplitude",
+  "scan": "intrinsic",
+  "magnification_bias": true,
+  "population_weights": [
+    0.0163577151858996,
+    0.04875774050852266,
+    0.09875526901757085,
+    0.15789702019183102,
+    0.20478676318653066,
+    0.21495137686031604,
+    0.17362329394485176,
+    0.08487082110447747
+  ],
+  "a_ratio_prior_mean": 0.5243556750369713,
+  "a_ratio_prior_mean_cross_section": 0.5243556750369713,
+  "magnification_bias_note": "two equivalent conventions, and --scan picks which one is run.  OBSERVED: the grid is rho_+ = sqrt(mu_+) rho_UL and the impact-parameter average carries p(y) ~ y times mu_+^{(s-1)/2}, because a Euclidean population magnified by mu_+ yields that many more lensed sources at a given observed amplitude.  INTRINSIC: the grid is rho_UL, each image is scaled by sqrt(mu_+) and sqrt(|mu_-|), and the average carries p(y) ~ y ALONE -- the bias is not a separate factor, it is absorbed by the change of variable, which is exact (DECISIONS.md D30, D31).  Ratios agree between the two to sampling noise.  --no-mu-weight is the naive convention in either variable and is what this product used before 2026-09-12.",
+  "population": {
+    "M_Lz": 87828225.214237,
+    "y_min": 0.17315539240441197,
+    "y_max": 1.0,
+    "t_d_min": 600.0,
+    "t_d_max": 3600.0,
+    "a_at_y_min": 0.8411882539015746,
+    "a_at_y_max": 0.38196601125010515,
+    "rel_morse_quarters": 1
+  },
+  "labels": {
+    "both_catalog": "Both in catalogue",
+    "one_subthr": "One in catalogue, one sub-threshold",
+    "long_max": "Both sub-threshold, unweighted max",
+    "long_marg": "Both sub-threshold, prior-weighted"
+  },
+  "plot_order": [
+    "both_catalog",
+    "one_subthr",
+    "long_max",
+    "long_marg"
+  ],
+  "measure": "sensitive volume, V = ((s-1)/rho_ref) int eps (rho/rho_ref)^-s drho plus the saturated tail, in units of the sphere out to the rho_ref horizon, averaged over the impact-parameter nodes with the magnification-biased weights above",
+  "rho_ref": 8.0,
+  "dof": {
+    "both_catalog": 2,
+    "one_subthr": 2,
+    "long_max": 4,
+    "long_marg": 4
+  },
+  "derived_trials": {
+    "T_obs_s": 31560000.0,
+    "f_rms_hz": 121.88,
+    "N_eff_window_measured": 173000.0,
+    "N_events_assumed": 100,
+    "N_templates_blind": 10000,
+    "N_templates_conditional": 1,
+    "N_templates_is_a_bank_size": true,
+    "N_single": 38465328000000.0,
+    "N_pairs": 6.654501744e+18,
+    "assumptions_swept": [
+      "N_events_assumed",
+      "N_templates_blind"
+    ],
+    "note": "every trials factor is derived from T_obs, f_rms and the MEASURED delay-window N_eff; no order-of-magnitude time/sky estimate is inherited.  TWO inputs are assumed rather than measured and both are swept below: N_events, and N_templates -- taken as 1e4, the scale quoted for binary-black-hole banks in the search literature, and charged to every strategy except the conditional one, whose bright event pins the template.  Only 2 ln N_templates enters, so a decade in it is worth 4.6 in rho^2 against thresholds of 60-90."
+  },
+  "amplitude_grid": {
+    "min": 2.0,
+    "max": 60.00000000000006,
+    "step": 0.2,
+    "n": 290
+  },
+  "volumes": {
+    "both_catalog": 0.4283109265952088,
+    "one_subthr": 0.9400750711716286,
+    "long_max": 1.777611887754188,
+    "long_marg": 1.7287181516137655
+  },
+  "ratios_vs_both_in_catalog": {
+    "both_catalog": 1.0,
+    "one_subthr": 2.1948426080198544,
+    "long_max": 4.150283771383181,
+    "long_marg": 4.036128999453602
+  },
+  "ratios_under_the_other_weighting": {
+    "both_catalog": 1.0,
+    "one_subthr": 2.3433406241945196,
+    "long_max": 5.0288543001732995,
+    "long_marg": 4.889676149862309,
+    "weighting": "cross-section prior only"
+  },
+  "saturation_diagnostics": {
+    "both_catalog": {
+      "eff_low": 0.0,
+      "eff_high": 1.0,
+      "tail_residual_frac": 0.0,
+      "first_bin_frac": 0.0
+    },
+    "one_subthr": {
+      "eff_low": 0.0,
+      "eff_high": 1.0,
+      "tail_residual_frac": 0.0,
+      "first_bin_frac": 0.0
+    },
+    "long_max": {
+      "eff_low": 0.0,
+      "eff_high": 1.0,
+      "tail_residual_frac": 0.0,
+      "first_bin_frac": 0.0
+    },
+    "long_marg": {
+      "eff_low": 0.0,
+      "eff_high": 1.0,
+      "tail_residual_frac": 0.0,
+      "first_bin_frac": 6.204387903341327e-07
+    }
+  },
+  "max_truncation_allowed": 0.001,
+  "slope_robustness": {
+    "-4.0": {
+      "volumes": {
+        "both_catalog": 0.4283109265952088,
+        "one_subthr": 0.9400750711716286,
+        "long_max": 1.777611887754188,
+        "long_marg": 1.7287181516137655
+      },
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.1948426080198544,
+        "long_max": 4.150283771383181,
+        "long_marg": 4.036128999453602
+      },
+      "marginalization_gain": 0.9724947068157863
+    },
+    "-4.5": {
+      "volumes": {
+        "both_catalog": 0.4207611509723809,
+        "one_subthr": 1.0251913258907006,
+        "long_max": 2.044469523382953,
+        "long_marg": 1.978713740151386
+      },
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.4365161173304113,
+        "long_max": 4.858978826011324,
+        "long_marg": 4.702700654702958
+      },
+      "marginalization_gain": 0.9678372396949396
+    },
+    "-5.0": {
+      "volumes": {
+        "both_catalog": 0.4268621878230585,
+        "one_subthr": 1.14588508637139,
+        "long_max": 2.38611352210817,
+        "long_marg": 2.2982044733647147
+      },
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.684438020184581,
+        "long_max": 5.589891984288975,
+        "long_marg": 5.383949524986642
+      },
+      "marginalization_gain": 0.9631580610356769
+    },
+    "-5.5": {
+      "volumes": {
+        "both_catalog": 0.4458876962728199,
+        "one_subthr": 1.310298030485769,
+        "long_max": 2.8276478893199792,
+        "long_marg": 2.7101761042648946
+      },
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.938627913348057,
+        "long_max": 6.341614520778032,
+        "long_marg": 6.078158529421839
+      },
+      "marginalization_gain": 0.9584560066694389
+    },
+    "-6.0": {
+      "volumes": {
+        "both_catalog": 0.47804308019773933,
+        "one_subthr": 1.5299223374019209,
+        "long_max": 3.4038493608728513,
+        "long_marg": 3.246352237372356
+      },
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 3.2003859082513624,
+        "long_max": 7.12038203641578,
+        "long_marg": 6.790919839336497
+      },
+      "marginalization_gain": 0.9537297022274487
+    }
+  },
+  "marginalization_gain_long": 0.9724947068157862,
+  "response_robustness_ratios": {
+    "unit": {
+      "both_catalog": 1.0,
+      "one_subthr": 2.1979559166222513,
+      "long_max": 4.151991359552131,
+      "long_marg": 4.035559634639638
+    },
+    "indep": {
+      "both_catalog": 1.0,
+      "one_subthr": 2.153200901651668,
+      "long_max": 4.211398263980797,
+      "long_marg": 4.097006617747916
+    },
+    "common": {
+      "both_catalog": 1.0,
+      "one_subthr": 2.196728724352874,
+      "long_max": 4.15145208754738,
+      "long_marg": 4.036134740625061
+    },
+    "mean": {
+      "both_catalog": 1.0,
+      "one_subthr": 2.1931065652645048,
+      "long_max": 4.1475062564269765,
+      "long_marg": 4.034392848113422
+    }
+  },
+  "n_events_sweep": {
+    "30": {
+      "threshold_one_subthr": 5.790480005687977,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.3555646732489253,
+        "long_max": 4.153236645377695,
+        "long_marg": 4.036795499625905
+      }
+    },
+    "100": {
+      "threshold_one_subthr": 5.99479810376664,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.195950807154627,
+        "long_max": 4.153236645377695,
+        "long_marg": 4.036795499625905
+      }
+    },
+    "300": {
+      "threshold_one_subthr": 6.175340385943136,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.0608210365732926,
+        "long_max": 4.153236645377695,
+        "long_marg": 4.036795499625905
+      }
+    },
+    "1000": {
+      "threshold_one_subthr": 6.3673208251910935,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 1.9237650979909795,
+        "long_max": 4.153236645377695,
+        "long_marg": 4.036795499625905
+      }
+    }
+  },
+  "n_templates_sweep": {
+    "1": {
+      "cut_catalogue": 6.837108029138275,
+      "cut_conditional": 5.99479810376664,
+      "a_switch": 0.8768031861158414,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 1.4772738272887245,
+        "long_max": 3.494694914408708,
+        "long_marg": 3.368192542780086
+      }
+    },
+    "10": {
+      "cut_catalogue": 7.165976303902706,
+      "cut_conditional": 5.99479810376664,
+      "a_switch": 0.8365640422927126,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 1.6668542787510607,
+        "long_max": 3.6837690330367274,
+        "long_marg": 3.559027634921779
+      }
+    },
+    "100": {
+      "cut_catalogue": 7.480400161360566,
+      "cut_conditional": 5.99479810376664,
+      "a_switch": 0.8014007238185346,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 1.8511682715245832,
+        "long_max": 3.856069526189845,
+        "long_marg": 3.7337317367804497
+      }
+    },
+    "1000": {
+      "cut_catalogue": 7.782130605436488,
+      "cut_conditional": 5.99479810376664,
+      "a_switch": 0.7703286423359121,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.027213688288758,
+        "long_max": 4.010770852111602,
+        "long_marg": 3.890090694679431
+      }
+    },
+    "10000": {
+      "cut_catalogue": 8.07259109245968,
+      "cut_conditional": 5.99479810376664,
+      "a_switch": 0.7426113914485484,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.194912429198031,
+        "long_max": 4.1533143288586025,
+        "long_marg": 4.03541785060433
+      }
+    },
+    "100000": {
+      "cut_catalogue": 8.352957388377332,
+      "cut_conditional": 5.99479810376664,
+      "a_switch": 0.7176857040008444,
+      "ratios": {
+        "both_catalog": 1.0,
+        "one_subthr": 2.3566398591513726,
+        "long_max": 4.281402518722886,
+        "long_marg": 4.169723393625946
+      }
+    }
+  },
+  "response_note": "the antenna factor multiplies every strategy's horizon identically, so it scales all volumes by u^3 and cancels in the ratios; the sweep above shows the ratios moving by <6% while the absolute volume moves by 2.3x.  It is therefore set to unity in the reported run."
+}

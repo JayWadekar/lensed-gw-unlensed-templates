@@ -1,0 +1,172 @@
+{
+  "timestamp_utc": "2026-09-09T09:25:49.888213+00:00",
+  "git_commit": "c648e17b32a5b05a290707b27327f0e17bf67232",
+  "seed": 20260901,
+  "config": {
+    "seg_dur": 32.0,
+    "sample_rate": 4096.0,
+    "f_lower": 20.0,
+    "f_final": 1024.0,
+    "psd_name": "aLIGOZeroDetHighPower",
+    "approximant": "IMRPhenomD",
+    "mass1": 5.5,
+    "mass2": 5.5,
+    "spin1z": 0.0,
+    "spin2z": 0.0,
+    "distance": 1000.0,
+    "extra": {},
+    "config_hash": "4ef5c57f316326f9"
+  },
+  "lens_model": "sis",
+  "core_radius": null,
+  "lens_label": "sis",
+  "m_tot": 11.0,
+  "t0_s": 17.24697804385375,
+  "segment": {
+    "chirp_time_s": 16.42569337509881,
+    "seg_dur_s": 32.0,
+    "required_s": 21.78211671887351
+  },
+  "oversample": 4,
+  "search_grid": {
+    "n_td": 1000,
+    "n_y": 8,
+    "n_active": 5339,
+    "t_d_range_s": [
+      0.0009765625,
+      0.5
+    ],
+    "y_range": [
+      0.01,
+      2.0
+    ],
+    "a_range": [
+      0.1715728752538098,
+      0.9900498750007812
+    ],
+    "M_Lz_range_active": [
+      103.62625423152316,
+      99938.79738102925
+    ],
+    "coordinates": "product grid in (t_d [linear], y)",
+    "td_spacing": "linear",
+    "t_d_min_s": 0.001,
+    "t_d_max_s": 0.5,
+    "y_min": 0.01,
+    "y_max": 2.0,
+    "M_Lz_min": 100.0,
+    "M_Lz_max": 100000.0,
+    "snapped_to_delta_t": 6.103515625e-05,
+    "n_td_before_snap": 1000,
+    "n_td_after_snap": 1000
+  },
+  "search_grid_note": "frozen point-mass-derived grid, deliberately not re-tuned for this lens model",
+  "glow_version": "0.1",
+  "wave_optics_source": "GLoW (Villarrubia-Rojo et al. 2024)",
+  "quantity": "recovery = max over time and the frozen lens grid of |z|/sigma(d); injections use the exact wave-optics F",
+  "wall_time_s": 840.2957046031952,
+  "n_skipped_delay_too_long": 0,
+  "n_glow_errors": 0,
+  "searched_domain_t_d_1ms_to_500ms": {
+    "lensed": {
+      "n": 383,
+      "min": 0.9722466442227798,
+      "median": 0.9964280261854377,
+      "frac_ge_0.97": 1.0,
+      "frac_ge_0.95": 1.0
+    },
+    "unlensed": {
+      "n": 383,
+      "min": 0.675856546529467,
+      "median": 0.8505365478274136,
+      "frac_ge_0.97": 0.10704960835509138,
+      "frac_ge_0.95": 0.1801566579634465
+    },
+    "generalized": {
+      "n": 383,
+      "min": 0.9761553158648614,
+      "median": 0.9964280261854377,
+      "frac_ge_0.97": 1.0,
+      "frac_ge_0.95": 1.0
+    },
+    "q0": {
+      "n": 383,
+      "min": 0.8015493538588143,
+      "median": 0.9137949833265964,
+      "frac_ge_0.97": 0.1174934725848564,
+      "frac_ge_0.95": 0.370757180156658
+    },
+    "q1": {
+      "n": 383,
+      "min": 0.9722466442227798,
+      "median": 0.9964280261854377,
+      "frac_ge_0.97": 1.0,
+      "frac_ge_0.95": 1.0
+    },
+    "q2": {
+      "n": 383,
+      "min": 0.8538986344586288,
+      "median": 0.9421944657898255,
+      "frac_ge_0.97": 0.24281984334203655,
+      "frac_ge_0.95": 0.46736292428198434
+    },
+    "q3": {
+      "n": 383,
+      "min": 0.7174082776617818,
+      "median": 0.8673221148858781,
+      "frac_ge_0.97": 0.10182767624020887,
+      "frac_ge_0.95": 0.206266318537859
+    }
+  },
+  "two_image_cells": {
+    "lensed": {
+      "n": 383,
+      "min": 0.9722466442227798,
+      "median": 0.9964280261854377,
+      "frac_ge_0.97": 1.0,
+      "frac_ge_0.95": 1.0
+    },
+    "unlensed": {
+      "n": 383,
+      "min": 0.675856546529467,
+      "median": 0.8505365478274136,
+      "frac_ge_0.97": 0.10704960835509138,
+      "frac_ge_0.95": 0.1801566579634465
+    },
+    "generalized": {
+      "n": 383,
+      "min": 0.9761553158648614,
+      "median": 0.9964280261854377,
+      "frac_ge_0.97": 1.0,
+      "frac_ge_0.95": 1.0
+    }
+  },
+  "three_or_more_image_cells": {
+    "lensed": null,
+    "unlensed": null,
+    "generalized": null
+  },
+  "cells_with_a_maximum": {
+    "lensed": null,
+    "unlensed": null,
+    "generalized": null
+  },
+  "morse_generalization_gain": {
+    "median": 0.0,
+    "max": 0.005360316754603467,
+    "frac_cells_improved_by_gt_0.01": 0.0
+  },
+  "best_q_census": {
+    "0": 0,
+    "1": 378,
+    "2": 5,
+    "3": 0
+  },
+  "image_counts": {
+    "0": 0,
+    "1": 64,
+    "2": 640,
+    "3": 0,
+    "4": 0
+  }
+}

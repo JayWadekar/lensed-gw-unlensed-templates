@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "lensed-gw-unlensed-templates: code for 'Searching for lensed gravitational waves with unlensed templates'"
+type: software
+license: MIT
+repository-code: "https://github.com/JayWadekar/lensed-gw-unlensed-templates"
+authors:
+  - family-names: Wadekar
+    given-names: Digvijay
+preferred-citation:
+  type: article
+  title: "Searching for lensed gravitational waves with unlensed templates"
+  year: 2026
+  authors:
+    - family-names: Wadekar
+      given-names: Digvijay
+    - family-names: Zackay
+      given-names: Barak
+    - family-names: Cheung
+      given-names: Mark Ho-Yeuk
+    - family-names: Islam
+      given-names: Tousif
+    - family-names: Roulet
+      given-names: Javier
+    - family-names: Mehta
+      given-names: Ajit Kumar
+    - family-names: Venumadhav
+      given-names: Tejaswi
+    - family-names: Mushkin
+      given-names: Jonathan
+    - family-names: Zumalacárregui
+      given-names: Miguel
+    - family-names: Zaldarriaga
+      given-names: Matias

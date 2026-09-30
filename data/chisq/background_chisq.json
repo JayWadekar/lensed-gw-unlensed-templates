@@ -1,0 +1,65 @@
+{
+  "timestamp_utc": "2026-09-08T02:02:18.306657+00:00",
+  "git_commit": "f3d36407121886750734be568845ded98f9e3c8c",
+  "seed": 20260903,
+  "n_segments": 300000,
+  "n_chisq_evaluated": 246577,
+  "chisq_fraction": 0.8219233333333333,
+  "config": {
+    "seg_dur": 4.0,
+    "sample_rate": 4096.0,
+    "f_lower": 20.0,
+    "f_final": 1024.0,
+    "psd_name": "aLIGOZeroDetHighPower",
+    "approximant": "IMRPhenomD",
+    "mass1": 25.0,
+    "mass2": 25.0
+  },
+  "n_bins": 16,
+  "dof": 30,
+  "rho_floor": 5.0,
+  "chi_floor": 5.0,
+  "fap": 0.001,
+  "thresholds": {
+    "raw": {
+      "UL": 5.544788360595703,
+      "BF": 6.567056179046631
+    },
+    "reweighted": {
+      "UL": 5.4743332862854,
+      "BF": 6.499512195587158,
+      "BF_residual_crosscheck": 6.499228477478027
+    }
+  },
+  "primary_veto": "conventional: the noise against the best-fit two-image template that produced the trigger; chi2_res is the residual construction, retained as a cross-check (D25)",
+  "chi2_unlensed_background": {
+    "n": 246577,
+    "median": 0.926809549331665,
+    "p90": 1.2728200674057006,
+    "p99": 1.6069352245330806,
+    "max": 2.39613938331604,
+    "frac_gt_1": 0.38455330383612424
+  },
+  "chi2_lensed_background": {
+    "n": 246577,
+    "median": 0.9155352711677551,
+    "p90": 1.2563329219818113,
+    "p99": 1.589852447509765,
+    "max": 2.4240047931671143,
+    "frac_gt_1": 0.36624259359145417
+  },
+  "chi2_residual_background": {
+    "n": 246577,
+    "median": 0.9005341529846191,
+    "p90": 1.2309521913528443,
+    "p99": 1.5527241897583008,
+    "max": 2.347430467605591,
+    "frac_gt_1": 0.3405143220981681
+  },
+  "reweight_loss": {
+    "UL": 0.07045507431030273,
+    "BF": 0.06754398345947266
+  },
+  "floor_is_safe": true,
+  "wall_time_s": 1301.4188272953033
+}

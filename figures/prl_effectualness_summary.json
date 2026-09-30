@@ -1,0 +1,164 @@
+{
+  "sources": [
+    "data/pointmass_M50/wave_optics_M50.npz",
+    "data/chang_refsdal/lensmodel_changrefsdal_MLz3000_M50.npz"
+  ],
+  "vmin": 0.62,
+  "point_mass": {
+    "m_tot": 50.0,
+    "search_grid": {
+      "n_td": 2318,
+      "n_y": 8,
+      "n_active": 9923,
+      "t_d_range_s": [
+        0.0009765625,
+        1.1583251953125
+      ],
+      "y_range": [
+        0.01,
+        2.0
+      ],
+      "a_range": [
+        0.1715728752538098,
+        0.9900498750007812
+      ],
+      "M_Lz_range_active": [
+        103.62625423152316,
+        99949.43928033128
+      ],
+      "coordinates": "product grid in (t_d [linear], y)",
+      "td_spacing": "linear",
+      "t_d_min_s": 0.001,
+      "t_d_max_s": 1.1583012571094922,
+      "y_min": 0.01,
+      "y_max": 2.0,
+      "M_Lz_min": 100.0,
+      "M_Lz_max": 100000.0,
+      "snapped_to_delta_t": 6.103515625e-05,
+      "n_td_before_snap": 2318,
+      "n_td_after_snap": 2318
+    },
+    "banded_region_f_ML_2_to_1000Hz": {
+      "lensed": {
+        "n": 457,
+        "min": 0.9765000791954066,
+        "median": 0.9974336128390345,
+        "frac_ge_0.97": 1.0,
+        "frac_ge_0.95": 1.0
+      },
+      "unlensed": {
+        "n": 457,
+        "min": 0.6742094795369223,
+        "median": 0.8747113297051888,
+        "frac_ge_0.97": 0.2013129102844639,
+        "frac_ge_0.95": 0.31072210065645517
+      },
+      "generalized": {
+        "n": 457,
+        "min": 0.9837129645679094,
+        "median": 0.9974336128390345,
+        "frac_ge_0.97": 1.0,
+        "frac_ge_0.95": 1.0
+      }
+    }
+  },
+  "chang_refsdal": {
+    "m_lz": 3000.0,
+    "y": 0.3,
+    "phi_gamma_deg": 45.0,
+    "m_tot": 50.0,
+    "exclude_half_width": 0.03,
+    "searched_domain": {
+      "unlensed": {
+        "n": 1014,
+        "min": 0.6291007232727329,
+        "median": 0.8023368478039715,
+        "frac_ge_0.97": 0.0,
+        "frac_ge_0.95": 0.0
+      },
+      "frozen_q1": {
+        "n": 1014,
+        "min": 0.7476803887395838,
+        "median": 0.8839456346330055,
+        "frac_ge_0.97": 0.21104536489151873,
+        "frac_ge_0.95": 0.22485207100591717
+      },
+      "generalized": {
+        "n": 1014,
+        "min": 0.8623583285333988,
+        "median": 0.9702028101019453,
+        "frac_ge_0.97": 0.5019723865877712,
+        "frac_ge_0.95": 0.5631163708086785
+      },
+      "q0": {
+        "n": 1014,
+        "min": 0.849322386997188,
+        "median": 0.9099664399069975,
+        "frac_ge_0.97": 0.29092702169625245,
+        "frac_ge_0.95": 0.33826429980276135
+      },
+      "q1": {
+        "n": 1014,
+        "min": 0.7476803887395838,
+        "median": 0.8839456346330055,
+        "frac_ge_0.97": 0.21104536489151873,
+        "frac_ge_0.95": 0.22485207100591717
+      },
+      "q2": {
+        "n": 1014,
+        "min": 0.7094165696879329,
+        "median": 0.8231261107595146,
+        "frac_ge_0.97": 0.0,
+        "frac_ge_0.95": 0.0
+      },
+      "q3": {
+        "n": 1014,
+        "min": 0.7103764838190586,
+        "median": 0.8444324056965563,
+        "frac_ge_0.97": 0.0,
+        "frac_ge_0.95": 0.0
+      }
+    },
+    "injection": "hybrid: exact wave optics where the Fermat contours close (kappa+gamma<1) -- GLoW's I(tau) with the lensing.wave_contour transform -- and exact geometric optics from the Chang-Refsdal quartic where they are open (DECISIONS.md D15, D27)",
+    "optics_census": {
+      "wave": 738,
+      "geometric": 276
+    },
+    "macro_saddle_cells": 276,
+    "macro_minimum_cells": 738,
+    "macro_minimum": {
+      "recovery_unlensed": {
+        "median": 0.7736636409745208,
+        "min": 0.6291007232727329,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_q1": {
+        "median": 0.8827494570486936,
+        "min": 0.7476803887395838,
+        "frac_ge_0.97": 0.2899728997289973
+      },
+      "recovery_general": {
+        "median": 0.9281986701848977,
+        "min": 0.8623583285333988,
+        "frac_ge_0.97": 0.3157181571815718
+      }
+    },
+    "macro_saddle": {
+      "recovery_unlensed": {
+        "median": 0.8082667557578556,
+        "min": 0.7938202643584559,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_q1": {
+        "median": 0.8846746124090386,
+        "min": 0.8639253346350545,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_general": {
+        "median": 0.9983599967196137,
+        "min": 0.994613882238874,
+        "frac_ge_0.97": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "which": "cr",
+  "vmin": 0.62,
+  "sources": [
+    "data/chang_refsdal_extended_a/lensmodel_changrefsdal_MLz3000_M50.npz"
+  ],
+  "m_lz": 3000.0,
+  "y": 0.3,
+  "phi_gamma_deg": 45.0,
+  "m_tot": 50.0,
+  "a2_over_fainter_first": {
+    "median": 1.1396840548360112,
+    "max": 3.90141228985161
+  },
+  "extend_a": true,
+  "extended_amplitude_axis": {
+    "rule": "a -> 1/a, the frozen axis mirrored about one",
+    "n_a_frozen": 8,
+    "n_a_extended": 16,
+    "a_range_extended": [
+      0.1715728752538098,
+      5.828427124746193
+    ],
+    "note": "a probe for one appendix figure; the deployed search and every other product keep 0 < a < 1 (D34)"
+  },
+  "ext_uses_a_gt_1_cells": 207,
+  "groups": {
+    "two_image": {
+      "n": 590,
+      "recovery_q1": {
+        "median": 0.9006102307476691,
+        "min": 0.8560597734729284,
+        "frac_ge_0.97": 0.36271186440677966
+      },
+      "recovery_general": {
+        "median": 0.9970572748473056,
+        "min": 0.8623583285333988,
+        "frac_ge_0.97": 0.8305084745762712
+      },
+      "recovery_unlensed": {
+        "median": 0.8155297559212669,
+        "min": 0.6553944138031068,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_extended": {
+        "median": 0.9970572748473056,
+        "min": 0.8623583285333988,
+        "frac_ge_0.97": 0.8305084745762712
+      }
+    },
+    "four_image_brighter_first": {
+      "n": 268,
+      "recovery_q1": {
+        "median": 0.8184176862946775,
+        "min": 0.7476803887395838,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_general": {
+        "median": 0.9241831556614337,
+        "min": 0.8779542968324372,
+        "frac_ge_0.97": 0.0708955223880597
+      },
+      "recovery_unlensed": {
+        "median": 0.7054548308348667,
+        "min": 0.6291007232727329,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_extended": {
+        "median": 0.9244522704674086,
+        "min": 0.8779769982636098,
+        "frac_ge_0.97": 0.0708955223880597
+      }
+    },
+    "four_image_fainter_first": {
+      "n": 156,
+      "recovery_q1": {
+        "median": 0.8639327999650426,
+        "min": 0.763488389387359,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_general": {
+        "median": 0.887210761431846,
+        "min": 0.8739884558293908,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_unlensed": {
+        "median": 0.7658301238585943,
+        "min": 0.6474467858493776,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_extended": {
+        "median": 0.9068857014908552,
+        "min": 0.8774204946794508,
+        "frac_ge_0.97": 0.0
+      }
+    },
+    "macro_saddle": {
+      "n": 276,
+      "recovery_q1": {
+        "median": 0.8846746124090386,
+        "min": 0.8639253346350545,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_general": {
+        "median": 0.9983599967196137,
+        "min": 0.994613882238874,
+        "frac_ge_0.97": 1.0
+      },
+      "recovery_unlensed": {
+        "median": 0.8082667557578556,
+        "min": 0.7938202643584559,
+        "frac_ge_0.97": 0.0
+      },
+      "recovery_extended": {
+        "median": 0.9983599967196137,
+        "min": 0.994613882238874,
+        "frac_ge_0.97": 1.0
+      }
+    }
+  }
+}
