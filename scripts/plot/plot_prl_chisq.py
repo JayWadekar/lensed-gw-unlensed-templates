@@ -47,6 +47,7 @@ CHI2_LEVEL = 2.0          # the value above which a search demotes a trigger
 C_CHI2 = "#00e5ff"        # the chi2_r = 2 contour
 VOL_TICKS = (0.1, 0.3, 1.0, 3.0, 10.0)
 T_D_DOMAIN = (1e-3, 0.5)
+C_GW231123 = "#008c3a"    # GW231123 point-mass 90% credible contour
 
 
 def _chi2_panel(ax, x, y, arr, norm, t_d, t_chirp):
@@ -105,10 +106,44 @@ def _label_flattest(ax, cs, level, text, fontsize=8):
         t.set_ha("center")
 
 
+def _label_alongside(ax, contours, text, color, gap=0.015, slide=0.0,
+                     fontsize=8.5):
+    """Write ``text`` parallel to the long axis of a closed contour, on its right.
+
+    The long axis is the principal axis of the contour vertices in axes
+    coordinates, which are isotropic on screen because every panel is square
+    and do not move when constrained_layout repositions the axes.  Call this
+    only after the scale and limits are set.
+    """
+    v = np.concatenate([np.column_stack([np.log10(c["MLz"]), c["y"]])
+                        for c in contours])
+    p = ax.transAxes.inverted().transform(ax.transData.transform(v))
+    c0 = p.mean(axis=0)
+    evals, evecs = np.linalg.eigh(np.cov((p - c0).T))
+    major = evecs[:, np.argmax(evals)]
+    if major[0] < 0:
+        major = -major
+    # Normal on the right of the contour; with the text reading along
+    # ``major`` this is the text's "up", so the text sits bottom-anchored.
+    normal = np.array([-major[1], major[0]])
+    if normal[0] < 0:
+        normal = -normal
+    va = "bottom" if np.dot(normal, [-major[1], major[0]]) > 0 else "top"
+    offset = np.max((p - c0) @ normal)
+    anchor = c0 + (offset + gap) * normal + slide * major
+    ax.text(*anchor, text, color=color, fontsize=fontsize, zorder=7,
+            transform=ax.transAxes,
+            rotation=np.degrees(np.arctan2(major[1], major[0])),
+            rotation_mode="anchor", ha="center", va=va)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data",
                     default=st.data_path("chisq", "chisq_M50.npz"))
+    ap.add_argument("--gw231123",
+                    default=st.data_path("gw231123",
+                                         "pm_nrsur_y_MLz_90.json"))
     ap.add_argument("--background",
                     default=st.data_path("chisq") + "/"
                             "background_chisq.npz")
@@ -166,8 +201,17 @@ def main():
         ax.set_xlabel(r"$\log_{10}\!\left(M_{\mathrm{L}z}/M_\odot\right)$")
     axes[0].set_ylabel(r"impact parameter $y$")
 
+    # GW231123 point-mass lens posterior, 90% credible region.
+    with open(args.gw231123) as fh:
+        gw = json.load(fh)
+    for seg in gw["contours"]:
+        axes[2].plot(np.log10(seg["MLz"]), seg["y"], color=C_GW231123,
+                     lw=1.8, zorder=7)
+
     # After the log scale and the limits, so the tilt is measured on screen.
     _label_flattest(axes[2], csv, np.log10(2.0), r"$\times 2$")
+    _label_alongside(axes[2], gw["contours"], r"\textbf{GW231123}",
+                     C_GW231123, slide=0.025, fontsize=7.5)
 
     cb = fig.colorbar(im, ax=[axes[0], axes[1]], location="bottom",
                       shrink=0.92, pad=0.035, aspect=42)
@@ -211,7 +255,7 @@ def main():
                 "frac_gt_2": float(np.mean(a > 2.0)),
                 "frac_lt_1": float(np.mean(a < 1.0))}
     summary = {
-        "sources": [args.data, args.background],
+        "sources": [args.data, args.background, args.gw231123],
         "m_tot": meta["m_tot"], "rho_ref": rho_ref,
         "n_bins": meta["n_bins"], "dof": meta["dof"],
         "chirp_time_s": t_chirp,
@@ -294,7 +338,8 @@ percentile and exceeding $\times2$ over $%(v_frac2).0f\%%$ of the searched
 cells, which the black contour encloses --- and blue is where it does not,
 $%(v_frac_lt1).0f\%%$ of cells, which is the same conclusion as the
 fixed-false-alarm comparison of the SNR alone. Colour is clipped at a factor of
-$10$ either way."""
+$10$ either way. The green contour is the $90\%%$ credible region of the
+point-mass lens parameters inferred for GW231123 (NRSur7dq4 waveform)."""
     caption = caption % {
         "rho": rho_ref, "nbins": meta["n_bins"], "dof": meta["dof"],
         "lev": CHI2_LEVEL,
